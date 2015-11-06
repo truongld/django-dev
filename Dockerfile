@@ -3,8 +3,7 @@ MAINTAINER Truong LD version: 1.0
 RUN sed -i '$ a\deb http://mirror-fpt-telecom.fpt.net/ubuntu/ trusty main' /etc/apt/sources.list
 RUN sed -i '$ a\deb-src http://mirror-fpt-telecom.fpt.net/ubuntu/ trusty main' /etc/apt/sources.list
 RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get update
-RUN apt-get install -y build-essential g++ curl libssl-dev apache2-utils sshfs openssh-server libmysqlclient-dev python-dev tcl8.5 redis-server libxml2-dev libxslt1-dev git
+RUN apt-get update && apt-get install -y build-essential g++ curl libssl-dev apache2-utils sshfs openssh-server libmysqlclient-dev python-dev tcl8.5 redis-server libxml2-dev libxslt1-dev git
 RUN cd /tmp && wget https://bootstrap.pypa.io/get-pip.py
 RUN python /tmp/get-pip.py
 ADD ./requirements.txt /tmp/requirements.txt
